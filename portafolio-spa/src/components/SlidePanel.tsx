@@ -113,7 +113,7 @@ export function SlidePanel({ project, onClose, children }: Props) {
               <ul className="flex flex-col gap-1.5">
                 {project.highlights.map(h => (
                   <li key={h} className="font-mono text-xs text-[var(--text-dim)] flex gap-2">
-                    <span className="text-[var(--g)] opacity-60">→</span>
+                    <span className="text-[var(--g)] opacity-60">✔️</span>
                     {h}
                   </li>
                 ))}
@@ -128,7 +128,7 @@ export function SlidePanel({ project, onClose, children }: Props) {
               <ul className="flex flex-col gap-1.5">
                 {project.challenges.map(c => (
                   <li key={c} className="font-mono text-xs text-[var(--text-dim)] flex gap-2">
-                    <span className="text-[var(--accent-orange)] opacity-60">✕</span>
+                    <span className="text-[var(--accent-orange)] opacity-60">🦾</span>
                     {c}
                   </li>
                 ))}
@@ -136,6 +136,12 @@ export function SlidePanel({ project, onClose, children }: Props) {
             </div>
           )}
 
+          {project?.summary && (
+            <div>
+              <p className="font-mono text-[10px] text-[var(--g)] tracking-widest uppercase opacity-70 mb-2">summary</p>
+              <p className="font-italic">{project.summary}</p>
+            </div>
+          )}
           {project?.screenshots && project.screenshots.length > 0 && (
             <div>
               <p className="font-mono text-[10px] text-[var(--g)] tracking-widest uppercase opacity-70 mb-2">screenshots</p>
@@ -145,11 +151,7 @@ export function SlidePanel({ project, onClose, children }: Props) {
                     {project.screenshots.map((src, i) => (
                       <CarouselItem key={i}>
                         <div className="w-full h-[768px] overflow-hidden rounded-lg border border-[var(--border)]">
-                          <img
-                            src={src}
-                            alt={`${project.name} screenshot ${i + 1}`}
-                            className="w-full h-full object-fit object-top"
-                          />
+                          <iframe src={src} className='object-fit w-full h-full'></iframe>
                         </div>
                       </CarouselItem>
                     ))}
