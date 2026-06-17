@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import type { Project } from '../data/projects'
 import {
   Carousel,
@@ -6,6 +6,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel.tsx'
 
 
@@ -16,11 +17,21 @@ type Props = {
 }
 
 export function SlidePanel({ project, onClose, children }: Props) {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
+
+  // Reinitialize Embla after the panel slide-in animation completes (300ms)
+  // so it computes scroll bounds with the correct dimensions.
+  useEffect(() => {
+    if (!project || !carouselApi) return
+    const t = setTimeout(() => carouselApi.reInit(), 320)
+    return () => clearTimeout(t)
+  }, [project, carouselApi])
 
   return (
     <>
@@ -95,16 +106,21 @@ export function SlidePanel({ project, onClose, children }: Props) {
               )}
             </div>
           )}
-          {project?.repo && (
-            <button
-              onClick={e => {
-                e.stopPropagation()
-                window.open(project.repo, '_blank')
-              }}
-              className="font-mono text-[18px] text-[var(--g)] hover:text-[var(--g-dim)] transition-colors tracking-wide cursor-pointer border"
-            >
-              github repo url
-            </button>
+          {project?.repos && project.repos.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {project.repos.map(({ label, url }) => (
+                <button
+                  key={url}
+                  onClick={e => {
+                    e.stopPropagation()
+                    window.open(url, '_blank')
+                  }}
+                  className="font-mono text-sm text-[var(--g)] hover:text-[var(--g-dim)] transition-colors tracking-wide cursor-pointer border border-[var(--border)] px-3 py-1.5 rounded"
+                >
+                  ↗ {label}
+                </button>
+              ))}
+            </div>
           )}
           {/* highlights */}
           {project?.highlights && (
@@ -145,13 +161,13 @@ export function SlidePanel({ project, onClose, children }: Props) {
           {project?.screenshots && project.screenshots.length > 0 && (
             <div>
               <p className="font-mono text-[10px] text-[var(--g)] tracking-widest uppercase opacity-70 mb-2">screenshots</p>
-              <Carousel className="w-full">
+              <Carousel className="w-full" setApi={setCarouselApi}>
                 <div className="relative px-8">
                   <CarouselContent>
                     {project.screenshots.map((src, i) => (
                       <CarouselItem key={i}>
                         <div className="w-full h-[768px] overflow-hidden rounded-lg border border-[var(--border)]">
-                          <iframe src={src} className='object-fit w-full h-full'></iframe>
+                          <iframe src={src} className='object-fit w-full h-full pointer-events-none'></iframe>
                         </div>
                       </CarouselItem>
                     ))}
