@@ -93,7 +93,7 @@ The site is public and requires no login — it was designed as an alternative t
     detail: 'Educational CNC resource platform. Pre-designed in Figma before dev. File serving via FastAPI backend — fast to ship, not ideal for CDN scaling. Real constraint, real lesson.',
     summary: `This was the first project I built in React. 
 I used browser-based AI assistance, but a significant portion of the work was done by hand, which made development considerably slower. 
-The goal was to give students easy access to all available course materials in one place. As you could see if you watch the backend repo, this project has a clear design mistake: 
+The goal was to give students easy access to all available course materials in one place. As you could see if you check the backend repo, this project has a clear design mistake: 
 I stored the files directly on the backend server instead of using a dedicated file hosting service.`,
     screenshots: ['https://drive.google.com/file/d/1Hw373RNZ-B73ykq4iibmBbo_-bv4iH0O/preview']
   },

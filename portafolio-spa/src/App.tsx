@@ -27,14 +27,14 @@ function App() {
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {['spanish-native', 'english-B1', 'argentinian'].map(t => (
+            {['spanish-native', 'argentinian', 'english-working', 'tech enthusiastic'].map(t => (
               <span key={t} className="tag">{t}</span>
             ))}
           </div>
 
         </div>
       </div>
-      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-5 px-6 lg:px-10 py-2">
+      <div id="projects" className="grid sm:grid-cols-1 lg:grid-cols-3 gap-5 px-6 lg:px-10 py-2">
         {projects.map(p => (
           <ProjectCard key={p.id} project={p} onDetail={() => setActive(p)} />
         ))}
