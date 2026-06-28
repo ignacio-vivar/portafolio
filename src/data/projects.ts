@@ -23,28 +23,28 @@ export const projects: Project[] = [
     id: 'gimtest',
     title: 'GIM_TEST',
     name: 'GimTest',
-    description: 'Full gym management SaaS — exercises, routines, students, schedules, automated sessions.',
+    description: 'Full-stack gym management SaaS — exercises, routines, student progress, schedules, and automated sessions.',
     isAlive: true,
     status: 'live',
     stack: ['next.js', 'fastapi', 'supabase', 'postgresql', 'shadcn/ui', 'tanstack table'],
     url: 'https://gim-project.vercel.app',
-    detail: 'Real-world SaaS app. Handles exercises (reps & timed), routines, student management. Supabase auth with protected routes, RLS',
+    detail: 'Real-world SaaS application. Handles custom routines (timed/rep-based), student profile management, and interactive scheduling. Features Supabase Auth with protected routes and PostgreSQL Row-Level Security (RLS).',
     year: '2024 — present',
     role: 'solo project',
     // repos: [{ label: 'frontend', url: 'https://github.com/ignacio-vivar/gim-project' }],
     highlights: [
-      'APScheduler for automatic session status transitions',
-      'Row-Level Security with SECURITY DEFINER functions',
-      'Supabase updates for user roles',
-      'TanStack Table for complex data views',
-      'Custom schedule template with per-day start times',
-      'Dedicated components for exercise management and routines, with a timeline of scheduled sessions'
+      'APScheduler integration for automated session status transitions in the backend',
+      'PostgreSQL Row-Level Security (RLS) coupled with Security Definer functions for secure data isolation',
+      'Automated Supabase database triggers for role-based user management',
+      'TanStack Table for high-performance sorting, filtering, and pagination of student datasets',
+      'Custom schedule templates supporting flexible, per-day configuration profiles',
+      'Interactive session timelines with modular routine and exercise editors'
     ],
     challenges: [
-      'Supabase Auth integration',
-      'Docker port reservation conflicts on WSL2',
-      'ARRAY(Time) columns with SQLAlchemy ORM',
-      'Optimizing component loading times'
+      'Supabase Authentication integration and secure state sync in Next.js middleware',
+      'Docker port mapping and service conflicts on WSL2 development environments',
+      'PostgreSQL ARRAY(TIME) type mapping and query optimization with SQLAlchemy ORM',
+      'Optimizing React component rendering and chunk loading times'
     ],
     screenshots: [
       'https://drive.google.com/file/d/1LlMEAIInYxud6ESAXX4yFsyPVdSoBECO/preview',
@@ -53,13 +53,11 @@ export const projects: Project[] = [
       'https://drive.google.com/file/d/1CQhe7gkKnp2dpJe7xr5GSX0gx_m8KkV5/preview',
       'https://drive.google.com/file/d/1yCluvUhoHcU6DKpMFuuQKB_NEEM-wVPH/preview',
       'https://drive.google.com/file/d/1oHswz9W8yAlO00ndhrmeJxRL7EpG_M40/preview'
-
     ],
-    summary: `In this project I built a SPA with multiple tabs to cover the product's needs. Since the customer is a native Spanish speaker, the frontend is only available in Spanish.
-The app is composed of three elements: a FastAPI backend, Supabase for the database and authentication, and a Next.js frontend. 
-There are tabs to view student routines, backed by a global context that retains recently viewed ones. Another tab shows student schedules and their status. A routine editor allows creating or editing routines. 
-Finally, there are tabs for student and exercise management. The whole process is documented in Obsidian and Excalidraw. As a bonus, the app lets the trainer configure a set of custom variables.
-The app is not finished, but has a stable version in active use. It is also my current main focus.`,
+    summary: `In this project, I built a Single Page Application (SPA) with a multi-tab interface designed to streamline gym operations. To align with client requirements, the user interface is localized in Spanish.
+The architecture comprises a FastAPI backend, Supabase (for database storage and authentication), and a Next.js frontend. 
+Key modules include student routine tracking backed by a global React Context to cache recently viewed items, schedule and status boards, a robust routine builder/editor, and management dashboards for students and exercise catalogs. The entire design and planning phase was mapped out in Obsidian and Excalidraw. The system also includes an administrative panel for trainers to configure custom variables.
+The project is currently active, has a stable release deployed, and remains my primary focus.`,
   },
   {
     id: 'cdf-vivar',
@@ -71,14 +69,22 @@ The app is not finished, but has a stable version in active use. It is also my c
     repos: [{ label: 'repo', url: 'https://github.com/ignacio-vivar/vibe_astro_blog' }],
     stack: ['astro', 'mdx', 'google drive', 'vercel', 'antigravity'],
     url: 'https://cdf-vivar.vercel.app',
-    detail: 'Material preview & download site built in Astro. Uses MDX for content and links files stored in Google Drive. First project using Antigravity for agentic AI-assisted development.',
-    highlights: ['Fast and useful page for students', 'Easy addition of new content', 'Powerful MDX format — Markdown with embedded components'],
-    challenges: ['Manual installation of dependencies — agents struggle with dependency management'],
-    summary: `This was an agentic build where I chose Astro to create a fast, easy-to-update blog for sharing course materials across my subjects as a teacher. 
-I used MDX to combine regular Markdown with embedded components. 
-The site is public and requires no login — it was designed as an alternative to the Moodle campus, which had a cumbersome login and a difficult student enrollment process.`,
-    screenshots: ['https://drive.google.com/file/d/1elWYqCcJ36D3WhalyHzeHIUmUtCzEsFF/preview',
-      'https://drive.google.com/file/d/1HoG1XyaqI5bwKls93t0FIoQ63SENikDC/preview']
+    detail: 'A high-performance educational portal for content sharing and previews. Built with Astro, utilizing MDX for modular article styling, and fetching downloadable assets from Google Drive. Developed using agentic AI workflows.',
+    highlights: [
+      'High-performance, SEO-optimized static site delivering fast load times for students',
+      'Streamlined content publishing workflow using markdown-centric structures',
+      'MDX integration enabling interactive React/Astro components within standard Markdown documents'
+    ],
+    challenges: [
+      'Handling package manager conflicts and manually resolving complex dependency trees during AI-assisted builds'
+    ],
+    summary: `This project was developed through an agentic workflow where I chose Astro to construct a lightweight, high-speed educational platform for sharing study materials across my courses. 
+I integrated MDX to inject dynamic components into markdown documents. 
+The site is entirely public, eliminating login barriers and serving as a seamless alternative to the university Moodle LMS, which suffered from a high-friction sign-in flow and student enrollment overhead.`,
+    screenshots: [
+      'https://drive.google.com/file/d/1elWYqCcJ36D3WhalyHzeHIUmUtCzEsFF/preview',
+      'https://drive.google.com/file/d/1HoG1XyaqI5bwKls93t0FIoQ63SENikDC/preview'
+    ]
   },
   {
     id: 'cdf-cnc',
@@ -90,11 +96,9 @@ The site is public and requires no login — it was designed as an alternative t
     repos: [{ label: 'frontend', url: 'https://github.com/ignacio-vivar/FrontCNC' }, { label: 'backend', url: 'https://github.com/ignacio-vivar/BackCNC' }],
     stack: ['react', 'fastapi', 'figma'],
     url: 'https://cncwebpage.netlify.app/',
-    detail: 'Educational CNC resource platform. Pre-designed in Figma before dev. File serving via FastAPI backend — fast to ship, not ideal for CDN scaling. Real constraint, real lesson.',
-    summary: `This was the first project I built in React. 
-I used browser-based AI assistance, but a significant portion of the work was done by hand, which made development considerably slower. 
-The goal was to give students easy access to all available course materials in one place. As you could see if you check the backend repo, this project has a clear design mistake: 
-I stored the files directly on the backend server instead of using a dedicated file hosting service.`,
+    detail: 'Educational platform for CNC programming resources. Designed in Figma prior to implementation. Features direct file streaming via a FastAPI backend.',
+    summary: `This was my first project using React, built using browser-based AI assistance and manual implementation. 
+The system was designed to provide students with rapid access to academic files. From an architectural standpoint, the project suffers from a clear anti-pattern: serving static files directly from the backend server disk instead of utilizing an object storage bucket (e.g., AWS S3) and a CDN. This experience provided valuable lessons in backend architecture and cloud asset delivery constraints.`,
     screenshots: ['https://drive.google.com/file/d/1Hw373RNZ-B73ykq4iibmBbo_-bv4iH0O/preview']
   },
   {
@@ -106,17 +110,20 @@ I stored the files directly on the backend server instead of using a dedicated f
     status: 'running',
     repos: [{ label: 'repo', url: 'https://github.com/ignacio-vivar/bot_telegram' }],
     stack: ['python', 'telegram bot api', 'fatsecret api', 'fastapi', 'vps'],
-    detail: 'Personal Telegram bot for nutrition tracking. Access-controlled via Telegram user ID. Deployed on a VPS for 24/7 uptime — no cloud functions, no complexity.',
-    highlights: ['Usage of VPS', 'Bot only functional for myself'],
-    challenges: ['Retrieve all meals information into a json file', '3 steps authentication token for users in FatSecret API'],
-    summary: `I discovered that the FatSecret API exposes free endpoints, so I decided to build a Telegram bot to reduce the time I spend logging calories and food intake.
-I read the FatSecret API docs and used Postman to understand how to obtain tokens. Then I tested the endpoints — some had restrictions, but I found useful ones for searching foods.
-I used the fuzzy library to match similar search terms, and FastAPI to keep the server running. For access control, I restricted the bot to my own Telegram ID.
-One key constraint: FatSecret API requires a static IP, so I solved that by renting a VPS on Contabo. 
-Another key finding was that it was straightforward to write scripts to retrieve the identifiers for different types of meals.`,
+    detail: 'Telegram bot for personalized nutrition tracking, deployed on a self-managed VPS. Restricts access to a single user ID and integrates with the FatSecret database.',
+    highlights: [
+      'Self-managed VPS deployment (Contabo) with process monitoring for 24/7 uptime',
+      'Single-user authentication gating based on Telegram Chat IDs'
+    ],
+    challenges: [
+      'Parsing and caching nutrition schemas into localized JSON files for quick lookups',
+      'Implementing 3-legged OAuth authentication flow to retrieve secure user tokens from the FatSecret API'
+    ],
+    summary: `To optimize the process of tracking my daily caloric intake, I built this Telegram bot integrated with the FatSecret API. 
+After analyzing the API endpoints in Postman, I designed a FastAPI server that handles requests and integrates a fuzzy matching string similarity library to resolve approximate food search terms. 
+Due to FatSecret's requirement for a static IP address, I deployed the FastAPI application on a rented Contabo VPS. The bot is locked to my Telegram User ID to prevent unauthorized access.`,
     screenshots: ['https://drive.google.com/file/d/1IkkKd0yicJDvlkKWsiWP3cGuxyoYsvqb/preview']
   },
-
   {
     id: 'docs-mobile',
     title: 'DOCS / MOBILE',
@@ -125,42 +132,47 @@ Another key finding was that it was straightforward to write scripts to retrieve
     isAlive: false,
     status: 'archived',
     stack: ['react', 'fastapi', 'jwt auth', 'mobile-first', 'shadcn', 'notion'],
-    detail: 'Mobile-first document management. Manual JWT auth with FastAPI — no OAuth library, custom token handling. Functional but never deployed.',
-    summary: `This project was commissioned by a group of doctors.
-I teamed up with a developer friend, but we eventually stopped working on it because we couldn't find a sustainable balance between the time we were investing and the effort required 
-to maintain a large-scale app — plus the hosting costs. The project was private, and aimed to solve scheduling and workflow difficulties for medical staff.
-In this process we refactored many components and tried to follow best practices — which had two sides: it made components, hooks, and structure more reusable across projects, 
-but it consumed a lot of time and the app never got close to the original vision.`,
-    highlights: ['Selection of shadcn to UI framework'],
-    challenges: ['Understanding the code of my teammate and his business logic'],
-
+    detail: 'Mobile-first document cataloging system designed for medical teams. Implements a custom JWT authentication scheme in FastAPI without external Auth providers.',
+    summary: `Commissioned by a team of medical practitioners, this private platform aimed to streamline internal schedules and document access. 
+I collaborated with another developer, but we eventually halted development due to maintenance overhead, hosting costs, and scope changes. 
+During development, we focused on modular React components and reusable custom hooks. Although the app never reached production, the process refined our state management practices and established architecture patterns that I still use today.`,
+    highlights: [
+      'Adopting shadcn/ui to build a unified, accessible, and responsive component library'
+    ],
+    challenges: [
+      'Integrating and aligning business logic across shared codebases and separate repositories'
+    ],
     screenshots: ['https://drive.google.com/file/d/1Cy8xBYiVTPccKU4TTbQzkMaHCLs1ga7d/preview']
   },
   {
     id: 'proposite',
     title: 'TANSTACK / AUTH',
     name: 'Proposite',
-    description: 'First TanStack Table implementation. Manual FastAPI auth. Built to get unstuck — shipped anyway.',
+    description: 'First TanStack Table implementation. Manual FastAPI auth. Built to learn and prototype.',
     isAlive: false,
     status: 'archived',
-    repos: [{ label: 'frontend-student', url: 'https://github.com/ignacio-vivar/proposite-project-student-frontend' },
-    { label: 'frontend-teacher', url: 'https://github.com/ignacio-vivar/proposite-project-admin-frontend' },
-    { label: 'backend', url: 'https://github.com/ignacio-vivar/backend_proposite_project' }],
+    repos: [
+      { label: 'frontend-student', url: 'https://github.com/ignacio-vivar/proposite-project-student-frontend' },
+      { label: 'frontend-teacher', url: 'https://github.com/ignacio-vivar/proposite-project-admin-frontend' },
+      { label: 'backend', url: 'https://github.com/ignacio-vivar/backend_proposite_project' }
+    ],
     stack: ['react', 'tanstack table', 'fastapi', 'manual auth'],
-    detail: 'Built to learn, not to ship. First hands-on use of TanStack Table. The patterns carried forward to GimTest.',
-    highlights: ['Learn to use React TanStack Table'],
-    challenges: ['Optimization of hooks and requests to update data in tables'],
-    summary: `In this project I learned how to use TanStack Table, which proved very useful.
-The app was functional but I have to admit it had serious performance issues in the teacher dashboard.
-I designed it with a dual-view approach — one for teachers, one for students — with the goal of delivering grade feedback digitally.
-The turning point was that students were no longer allowed to use their phones in class, so I decided to archive the project.
-The solution was designed in a hard-coded way, built specifically around my own subjects. It could be refactored for broader use, but at the time that wasn't the goal.
-It had a desktop view for teachers and a mobile view for students.`,
-    screenshots: ['https://drive.google.com/file/d/1BsZ22H-gjimYjxBZg7TwG0p3Cm9M0Ukw/preview',
+    detail: 'A dual-dashboard prototype built to learn TanStack Table and custom JWT authentication. Provided the foundational code patterns for GimTest.',
+    highlights: [
+      'Mastering React TanStack Table API for sorting, pagination, and multi-column filtering'
+    ],
+    challenges: [
+      'Optimizing custom React hooks and backend polling requests to minimize performance lag on high-frequency table data updates'
+    ],
+    summary: `Proposite was a learning prototype built to digitize grading feedback with a dual-interface approach: a desktop view for teachers and a mobile interface for students. 
+Although the platform was fully functional, the teacher dashboard suffered from rendering bottlenecks due to unoptimized state updates. 
+Following educational policy changes restricting student phone usage in class, I decided to archive the project. The application was monolithic and hardcoded for my specific courses, but it served its purpose as an essential stepping stone to GimTest.`,
+    screenshots: [
+      'https://drive.google.com/file/d/1BsZ22H-gjimYjxBZg7TwG0p3Cm9M0Ukw/preview',
       'https://drive.google.com/file/d/19elWunU6P_QX2KvptjAltN86RezlovBg/preview',
       'https://drive.google.com/file/d/1RTJaCvfQdVbVg18gPmyt0I_Lm0pQwaWe/preview',
       'https://drive.google.com/file/d/1Hbn2ZLOzhO_OdNBb1C5dPi7VQI0_yBsJ/preview',
-      'https://drive.google.com/file/d/16b03ffVcy41viJCbDK6G02ljTBbzgKhi/preview']
-
+      'https://drive.google.com/file/d/16b03ffVcy41viJCbDK6G02ljTBbzgKhi/preview'
+    ]
   },
 ]

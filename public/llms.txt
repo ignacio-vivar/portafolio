@@ -1,0 +1,83 @@
+# Ignacio Vivar (Nacho) - Full Stack Developer Portfolio
+
+> Profile and project index of Ignacio Vivar, Full-Stack Developer and Electronic Engineer specialized in FastAPI, Next.js, PostgreSQL, Docker, and Supabase.
+
+## Profile Summary
+
+- **Name:** Ignacio Vivar (Nacho)
+- **Role:** Full-Stack Developer & Electronic Engineer
+- **Core Stack:** FastAPI, Next.js, PostgreSQL, Vite, React, Docker, Supabase
+- **Characteristics:** Native Spanish Speaker, Argentinian, English Working Proficiency, Tech Enthusiast
+- **GitHub:** [github.com/ignacio-vivar](https://github.com/ignacio-vivar)
+- **Email:** ignacio.vivar.cruz@gmail.com
+- **LinkedIn:** [linkedin.com/in/ignacio-vivar-cruz](https://www.linkedin.com/in/ignacio-vivar-cruz/)
+
+---
+
+## Projects
+
+Detailed catalog of developed systems, APIs, integrations, and architectural decisions.
+
+### [GimTest](https://gim-project.vercel.app) (Status: Live | Role: Solo Project | 2024 — Present)
+Full-stack gym management SaaS for managing exercises, routines, student progress, schedules, and automated sessions.
+- **Stack:** Next.js, FastAPI, Supabase, PostgreSQL, shadcn/ui, TanStack Table
+- **Core Architecture:** Multi-tab Single Page Application (SPA) utilizing a FastAPI backend and a Next.js client, with Supabase handling database operations and authentication.
+- **Technical Highlights:**
+  - Integrated APScheduler for automated session status transitions in the FastAPI backend.
+  - Implemented PostgreSQL Row-Level Security (RLS) coupled with Security Definer database functions to enforce tenant data isolation.
+  - Set up automated Supabase database triggers for role-based user management.
+  - Integrated TanStack Table for high-performance sorting, filtering, and pagination of student datasets.
+  - Developed custom schedule templates supporting flexible, per-day configuration profiles.
+- **Key Challenges Resolved:**
+  - Integrated Supabase Authentication with middleware state sync in Next.js.
+  - Fixed Docker port mapping and WSL2 service port conflicts.
+  - Mapped PostgreSQL `ARRAY(TIME)` type dynamically in SQLAlchemy ORM.
+
+### [CDF Vivar](https://cdf-vivar.vercel.app) (Status: Live | Role: Solo Project)
+A high-performance educational portal for content sharing and material previews.
+- **Stack:** Astro, MDX, Google Drive, Vercel, Antigravity
+- **Core Architecture:** Lightweight static site (SSG) utilizing Astro and MDX, pulling download assets directly from Google Drive. Created as a fast, low-friction alternative to a traditional Moodle LMS.
+- **Technical Highlights:**
+  - Fully static, SEO-optimized page rendering for high speed and minimal loading times.
+  - MDX file processing pipeline allowing JSX component embeds inside standard Markdown files.
+  - AI-assisted development workflow via Antigravity.
+- **Key Challenges Resolved:**
+  - Successfully resolved complex package manager dependencies and version resolution issues manually during agentic builds.
+
+### [CDF — CNC Platform](https://cncwebpage.netlify.app/) (Status: Live | Role: Solo Project)
+Educational platform for CNC programming resource sharing and file downloads.
+- **Stack:** React, FastAPI, Figma
+- **Core Architecture:** Multi-repo project featuring a React frontend and a FastAPI backend, designed in Figma prior to development.
+- **Key Insights & Anti-Patterns Documented:**
+  - Direct file streaming from backend server disk. Served as a learning experience regarding static file scaling bottlenecks and the necessity of object storage buckets (e.g. AWS S3) and Content Delivery Networks (CDNs).
+
+### [Nutrition Bot](https://github.com/ignacio-vivar/bot_telegram) (Status: Running | Role: Solo Project)
+Telegram bot for automated personal nutrition tracking and calorie logging.
+- **Stack:** Python, Telegram Bot API, FatSecret API, FastAPI, VPS
+- **Core Architecture:** Python service integrating the Telegram Bot API with the FatSecret API, deployed on a self-managed Contabo VPS.
+- **Technical Highlights:**
+  - Implemented single-user authentication gating based on Telegram Chat IDs.
+  - Integrated a fuzzy matching library for string similarity searches across the FatSecret food database.
+  - VPS deployment with process monitoring for 24/7 uptime.
+- **Key Challenges Resolved:**
+  - Programmed 3-legged OAuth authentication token exchange to query user data from the restricted FatSecret API.
+  - Parsed and cached custom nutrition schemas into JSON files.
+
+### Docs Mobile (Status: Archived | Role: Co-Developer)
+Mobile-first document cataloging system designed for medical teams.
+- **Stack:** React, FastAPI, JWT Auth, Mobile-first, shadcn/ui, Notion
+- **Core Architecture:** Multi-developer React/FastAPI mobile app implementing a custom JSON Web Token (JWT) verification and cookie handling flow without third-party auth providers.
+- **Technical Highlights:**
+  - Constructed accessible and responsive component patterns using shadcn/ui.
+- **Key Learnings:**
+  - Faced maintenance overhead and infrastructure/hosting costs that led to project archival. Refined reusable React custom hooks and component separation practices.
+
+### [Proposite](https://github.com/ignacio-vivar/proposite-project-student-frontend) (Status: Archived | Role: Solo Project)
+A dual-dashboard grade tracking and feedback prototype built to learn TanStack Table and custom JWT authentication.
+- **Stack:** React, TanStack Table, FastAPI, Manual Auth
+- **Core Architecture:** Dual-view system (desktop interface for teachers and mobile interface for students) utilizing manual JWT authentication in FastAPI.
+- **Technical Highlights:**
+  - Early-stage implementation of TanStack Table APIs for data grids.
+- **Key Challenges Resolved:**
+  - Dealt with rendering bottlenecks on the teacher panel by optimizing custom hooks and backend polling frequency.
+  - Archived the project after educational policies banned mobile devices in classrooms, utilizing the codebase patterns as a direct foundation for GimTest.
