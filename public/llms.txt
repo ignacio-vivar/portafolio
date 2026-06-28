@@ -51,14 +51,14 @@ Educational platform for CNC programming resource sharing and file downloads.
 - **Key Insights & Anti-Patterns Documented:**
   - Direct file streaming from backend server disk. Served as a learning experience regarding static file scaling bottlenecks and the necessity of object storage buckets (e.g. AWS S3) and Content Delivery Networks (CDNs).
 
-### [Nutrition Bot](https://github.com/ignacio-vivar/bot_telegram) (Status: Running | Role: Solo Project)
-Telegram bot for automated personal nutrition tracking and calorie logging.
+### [Nutrition Bot](https://github.com/ignacio-vivar/bot_telegram) (Status: Archived | Role: Solo Project)
+Telegram bot for automated personal nutrition tracking and calorie logging. Formerly VPS-hosted. Functioned perfectly but currently archived due to VPS subscription termination from lack of active use.
 - **Stack:** Python, Telegram Bot API, FatSecret API, FastAPI, VPS
-- **Core Architecture:** Python service integrating the Telegram Bot API with the FatSecret API, deployed on a self-managed Contabo VPS.
+- **Core Architecture:** Python service integrating the Telegram Bot API with the FatSecret API, formerly deployed on a self-managed Contabo VPS.
 - **Technical Highlights:**
   - Implemented single-user authentication gating based on Telegram Chat IDs.
   - Integrated a fuzzy matching library for string similarity searches across the FatSecret food database.
-  - VPS deployment with process monitoring for 24/7 uptime.
+  - VPS deployment with process monitoring for 24/7 uptime during operation.
 - **Key Challenges Resolved:**
   - Programmed 3-legged OAuth authentication token exchange to query user data from the restricted FatSecret API.
   - Parsed and cached custom nutrition schemas into JSON files.

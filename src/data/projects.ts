@@ -105,14 +105,14 @@ The system was designed to provide students with rapid access to academic files.
     id: 'nutrition-bot',
     title: 'BOT / VPS',
     name: 'Nutrition Bot',
-    description: 'Telegram bot with FatSecret API integration. VPS-hosted, personal Telegram ID auth gate.',
-    isAlive: true,
-    status: 'running',
+    description: 'Telegram bot with FatSecret API integration. Formerly VPS-hosted, personal Telegram ID auth gate. Currently archived due to subscription termination.',
+    isAlive: false,
+    status: 'archived',
     repos: [{ label: 'repo', url: 'https://github.com/ignacio-vivar/bot_telegram' }],
     stack: ['python', 'telegram bot api', 'fatsecret api', 'fastapi', 'vps'],
-    detail: 'Telegram bot for personalized nutrition tracking, deployed on a self-managed VPS. Restricts access to a single user ID and integrates with the FatSecret database.',
+    detail: 'Telegram bot for personalized nutrition tracking, formerly deployed on a self-managed VPS. Restricts access to a single user ID and integrates with the FatSecret database. Functioned perfectly during its active deployment, but currently archived due to VPS subscription termination from lack of active use.',
     highlights: [
-      'Self-managed VPS deployment (Contabo) with process monitoring for 24/7 uptime',
+      'Self-managed VPS deployment (Contabo) with process monitoring for 24/7 uptime during operation',
       'Single-user authentication gating based on Telegram Chat IDs'
     ],
     challenges: [
@@ -121,7 +121,7 @@ The system was designed to provide students with rapid access to academic files.
     ],
     summary: `To optimize the process of tracking my daily caloric intake, I built this Telegram bot integrated with the FatSecret API. 
 After analyzing the API endpoints in Postman, I designed a FastAPI server that handles requests and integrates a fuzzy matching string similarity library to resolve approximate food search terms. 
-Due to FatSecret's requirement for a static IP address, I deployed the FastAPI application on a rented Contabo VPS. The bot is locked to my Telegram User ID to prevent unauthorized access.`,
+Due to FatSecret's requirement for a static IP address, I deployed the FastAPI application on a rented Contabo VPS. The bot is locked to my Telegram User ID to prevent unauthorized access. Although the bot functioned perfectly, the VPS subscription was eventually cancelled due to lack of active use, and the project is now archived.`,
     screenshots: ['https://drive.google.com/file/d/1IkkKd0yicJDvlkKWsiWP3cGuxyoYsvqb/preview']
   },
   {
